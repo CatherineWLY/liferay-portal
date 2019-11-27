@@ -1,0 +1,42 @@
+@component-name = "portal-web-smoke"
+definition {
+	property testray.main.component.name = "Smoke";
+@description = "Ensure that the super admin can login successful."
+	@priority = "5"
+	test SuperAdminLogin{
+
+		Open(locator1 = "http://192.168.132.178:8080");
+		AssertClick(
+			locator1 = "//span[contains(@class,'sign-in')]/a", 
+			value1 = "Sign in");
+
+		Type(
+			locator1 = "LRLogin#EMAIL_ADDRESS_FIELD",
+			value1 = "test@liferay.com");
+
+		Type(locator1 = "LRLogin#PASSWORD_FIELD",
+			value1 = "test");
+
+		AssertClick(
+			locator1 = "LRLogin#SIGN_IN_BUTTON", 
+			value1 = "Sign in");
+
+    	AssertClick(
+    		locator1 = "LRTermsOfUse#AGREE_BUTTON", 
+    		value1 = "I Agree");   
+
+		Type(
+			locator1 = "LRPasswordReminder#ANSWER_FIELD",
+			value1 = "test");
+
+    	AssertClick(
+    		locator1 = "LRPasswordReminder#SAVE_BUTTON",
+    		value1 = "Save");
+
+   		AssertElementPresent(locator1 = "LRWelcome#ICON_USER");
+
+
+
+
+	}
+}
