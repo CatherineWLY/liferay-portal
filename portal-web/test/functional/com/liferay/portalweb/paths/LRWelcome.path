@@ -13,6 +13,16 @@
 	<td>//span[@class='user-avatar-link']</td>
 	<td></td>
 </tr>
+<tr>
+	<td>USER_AVATAR_BUTTON</td>
+	<td>//button[@class='btn btn-unstyled dropdown-toggle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_AVATAR_NAME</td>
+	<td>//li[@class='dropdown-subheader']</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
