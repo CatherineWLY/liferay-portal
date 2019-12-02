@@ -1,0 +1,52 @@
+definition {
+	macro login {
+		Open(locator1 = "${userWebsiteUrl}");
+
+		AssertClick(
+			locator1 = "LRLogin#SIGN_IN_LINK",
+			value1 = "Sign in");
+
+		Type(
+			locator1 = "LRLogin#EMAIL_ADDRESS_FIELD",
+			value1 = "${userEmailAddress}");
+		Type(
+			locator1 = "LRLogin#PASSWORD_FIELD",
+			value1 = "${userPassword}");
+
+		var key_buttonName = "Sign In";
+
+		AssertClick(
+			locator1 = "LRLogin#SIGN_IN_BUTTON",
+			value1 = "Sign In");
+
+		if(IsElementPresent(locator1 = "LRTermsOfUse#SHEET_TITLE_TERMS_OF_USER")){
+			
+			var key_buttonName = "I Agree";
+
+			AssertClick(
+				locator1 = "LRTermsOfUse#AGREE_BUTTON",
+				value1 = "I Agree");   
+
+			Type(
+				locator1 = "LRPasswordReminder#ANSWER_FIELD",
+				value1 = "${reminderAnswerField}");
+
+			var key_buttonName = "Save";
+
+			AssertClick(
+				locator1 = "LRPasswordReminder#SAVE_BUTTON",
+				value1 = "Save");
+		}
+
+	}
+
+	macro viewLogin {
+		IsElementPresent(locator1 = "LRWelcome#USER_AVATAR_IMAGE");
+
+		Click(locator1 = "LRWelcome#USER_AVATAR_BUTTON");
+
+		AssertTextEquals(
+			locator1 = "LRWelcome#USER_AVATAR_NAME",
+			value1 = "${userFullName}");
+	}
+}
