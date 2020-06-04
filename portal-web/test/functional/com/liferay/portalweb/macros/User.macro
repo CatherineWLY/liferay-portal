@@ -1,6 +1,7 @@
 definition {
 
 	var password = "test";
+
 	var userEmailAddress = "test@liferay.com";
 
 	macro _login {
